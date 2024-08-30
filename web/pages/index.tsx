@@ -230,7 +230,7 @@ export default function Home() {
 
       const r = u8aToHex(signature.slice(0, 32));
       const s = u8aToHex(signature.slice(32, 64));
-      const v = signature[64] + 27; 
+      const v = 27; 
 
       const ethSignature = {
         r: r,
@@ -245,7 +245,7 @@ export default function Home() {
 
       const body = JSON.stringify({
         msgSender: walletAddress,
-        signature: ethers.utils.joinSignature(ethSignature),
+        signature: signature,
         inputs: payload,
       });
 
