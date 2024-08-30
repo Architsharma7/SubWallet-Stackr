@@ -202,9 +202,9 @@ export default function Home() {
       };
       console.log(payload);
 
-      const publicKey = decodeAddress(walletAddress);
-      console.log(publicKey);
-      const ethAddress = ethers.utils.computeAddress(publicKey);
+      // const publicKey = decodeAddress(walletAddress);
+      // console.log(publicKey);
+      // const ethAddress = ethers.utils.computeAddress(publicKey);
 
       const payloadString = JSON.stringify(payload);
       console.log(payloadString);
@@ -235,7 +235,7 @@ export default function Home() {
       const ethSignature = {
         r: r,
         s: s,
-        v: v,
+        v: v
       };
 
       console.log("Signing action");
@@ -244,7 +244,7 @@ export default function Home() {
       console.log(ethers.utils.joinSignature(ethSignature))
 
       const body = JSON.stringify({
-        msgSender: ethAddress,
+        msgSender: walletAddress,
         signature: ethers.utils.joinSignature(ethSignature),
         inputs: payload,
       });
