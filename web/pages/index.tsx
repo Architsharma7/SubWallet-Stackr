@@ -245,7 +245,7 @@ export default function Home() {
 
       const body = JSON.stringify({
         msgSender: walletAddress,
-        signature: signature,
+        signature: (ethers.utils.joinSignature(ethSignature)),
         inputs: payload,
       });
 
